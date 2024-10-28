@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-10-28T17:50:34 IST" name="Suite" finished-at="2024-10-28T17:51:23 IST" duration-ms="49196">
+    <groups>
+    </groups>
+    <test started-at="2024-10-28T17:50:34 IST" name="Test" finished-at="2024-10-28T17:51:23 IST" duration-ms="49196">
+      <class name="io.stage.hudinielevate.cms.tests.DesignConfigsTest">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:io.stage.hudinielevate.cms.tests.DesignConfigsTest@7357a011]" started-at="2024-10-28T17:50:34 IST" name="setUp" finished-at="2024-10-28T17:50:43 IST" duration-ms="9009" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="verifyupdateComponentsTest()[pri:3, instance:io.stage.hudinielevate.cms.tests.DesignConfigsTest@7357a011]" started-at="2024-10-28T17:50:43 IST" name="verifyupdateComponentsTest" finished-at="2024-10-28T17:51:22 IST" duration-ms="39208" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyupdateComponentsTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:io.stage.hudinielevate.cms.tests.DesignConfigsTest@7357a011]" started-at="2024-10-28T17:51:22 IST" name="tearDown" finished-at="2024-10-28T17:51:23 IST" duration-ms="927" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- io.stage.hudinielevate.cms.tests.DesignConfigsTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
