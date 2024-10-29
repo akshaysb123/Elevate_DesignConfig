@@ -374,5 +374,9 @@ public class ElementActions extends BaseClass {
 	public void doubleClickUsingActions(By selector) {
 		actions.moveToElement(driver.findElement(selector)).doubleClick().build().perform();
 	}
+	 public void waitForLoaderToDisappear(By Selector) {
+	        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Constants.DEFAULT_EXPLICIT_WAIT)); // 20 seconds timeout
+	        wait.until(ExpectedConditions.invisibilityOfElementLocated(Selector));
+	    }
 
 }

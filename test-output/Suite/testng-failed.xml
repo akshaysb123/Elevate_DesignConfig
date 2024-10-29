@@ -9,8 +9,8 @@
     <classes>
       <class name="io.stage.hudinielevate.cms.tests.DesignConfigsTest">
         <methods>
-          <include name="verifyAddComponentsTest"/>
           <include name="setUp"/>
+          <include name="verifyupdateComponentsTest"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- io.stage.hudinielevate.cms.tests.DesignConfigsTest -->

@@ -71,6 +71,9 @@ public class DesignConfigsPage extends BaseClass {
 	private By remove4=By.xpath("//div[@class='text-underlined pointer']");
 	private By collapseLandscape2Dcomponent = By.xpath("//div[@class=' component-title col-md-10 ps-2'][normalize-space()='6 - Large IMG w/Carousel']");
     private By clickslide2=By.xpath("//span[normalize-space()='Slide 2']");
+    private By getTitle3visibletext=By.xpath("//li[text()='Conventions']");
+    private By loader=By.xpath("//div[@class='loader-container d-flex justify-content-center align-items-center h-100']");
+
 	
 
 
@@ -79,10 +82,9 @@ public class DesignConfigsPage extends BaseClass {
 	private By largeimage = By.xpath("//img[contains(@alt,'15 - Large Image')]");
 	private By imageupload3 = By.xpath("//div[@class='d-flex align-items-center img-select justify-content-center']");
 	private By collapselargeimage10Component = By.xpath("//div[contains(@class,'component-title col-md-10 ps-2')][normalize-space()='15 - Large Image']");
-
-
-
-	private By tagetlocation=By.xpath("//div[@class='page-builder-scroll scroll-styled']");
+    
+	private By saveasdraft=By.xpath("//span[text()='Save as Draft']");
+    private By tagetlocation=By.xpath("//div[@class='page-builder-scroll scroll-styled']");
 
 	//getter setter methods for navigating design configs page
 	public By getDesignConfigsLnk() {
@@ -97,6 +99,25 @@ public class DesignConfigsPage extends BaseClass {
 	public void setClickslide2(By clickslide2) {
 		this.clickslide2 = clickslide2;
 	}
+	public By getSaveasdraft() {
+		return saveasdraft;
+	}
+	public void setSaveasdraft(By saveasdraft) {
+		this.saveasdraft = saveasdraft;
+	}
+	public By getGetTitle3visibletext() {
+		return getTitle3visibletext;
+	}
+	public void setGetTitle3visibletext(By getTitle3visibletext) {
+		this.getTitle3visibletext = getTitle3visibletext;
+	}
+	 public By getLoader() {
+			return loader;
+		}
+		public void setLoader(By loader) {
+			this.loader = loader;
+		}
+
 
 	//getter setter method for pages module
 	public By getPageTb() {
@@ -460,7 +481,19 @@ public class DesignConfigsPage extends BaseClass {
 			e.printStackTrace();
 		}
 		elementActions.clickOnElement(getCollapselargeimage10Component());
-		//		elementActions.clickOnElement(getSaveDraftbtn());
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		elementActions.navigateToPage(getSaveasdraft());
+		elementActions.clickOnElement(getSaveasdraft());
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
 	}
   
 	
@@ -478,6 +511,59 @@ public class DesignConfigsPage extends BaseClass {
 			e.printStackTrace();
 		}
 		elementActions.clickOnElement(getPageNameTxt());
+		elementActions.clearData(getInputtext());
+		elementActions.sendKeysElement(getInputtext(), ExcelUtil.fetchData("DesignConfigs", 1, 4));
+		elementActions.clickOnElement(getCollapse1BHeroBanner());
+		
+		//carousel
+		elementActions.clickOnElement(getTitle2());
+		/*try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}*/
+		elementActions.clickOnElement(getGetTitle3visibletext());
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		elementActions.clickOnElement(getCollapseLandscape2Dcomponent());
+		//image
+		WebElement uploadElement3 = driver.findElement(By.xpath("//div[@class='d-flex align-items-center img-select justify-content-center']//div[contains(@class,'image-container')]"));
+		uploadElement3.click();
+		Robot robot3 = new Robot();
+		robot3.delay(2000);
+		String filePath3 = "C:\\Users\\AkshayBashetti\\OneDrive - Mankara PTE LTD\\Desktop\\test\\test6.jpg"; // Use the absolute path or create a relative path
+		StringSelection stringSelection2 = new StringSelection(filePath3);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection2, null);
+		robot3.keyPress(KeyEvent.VK_CONTROL);
+		robot3.keyPress(KeyEvent.VK_V);
+		robot3.keyRelease(KeyEvent.VK_V);
+		robot3.keyRelease(KeyEvent.VK_CONTROL);
+		robot3.keyPress(KeyEvent.VK_ENTER);
+		robot3.keyRelease(KeyEvent.VK_ENTER);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		elementActions.clickOnElement(getCollapselargeimage10Component());
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		elementActions.navigateToPage(getSaveasdraft());
+		elementActions.clickOnElement(getSaveasdraft());
+		
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		elementActions.clickOnElement(getSearchMenuTxtBx());
+		
 		
 	}
 
