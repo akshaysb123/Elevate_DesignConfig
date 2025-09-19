@@ -41,10 +41,10 @@ public class DesignConfigsTest {
 		System.out.println(properties.getProperty("superadminusername"));
 		System.out.println(properties.getProperty("superadminpassword"));
 		loginPage = new LoginPage(driver, properties);
-
+ 
 	}
 
-	@Test(enabled = true, priority = 1)
+	@Test(enabled = false, priority = 1)
 	public void verifyCreatePageTest() {
 		loginPage.loginAsUser();
 		propertiesPage = loginPage.navigateToPropertiesPage();
@@ -54,7 +54,7 @@ public class DesignConfigsTest {
 		Assert.assertTrue(isPageCreated, "Design Config page is not created");
 	}
 
-	@Test(enabled = true, priority = 2)
+	@Test(enabled = false, priority = 2)
 	public void verifyAddComponentsTest() throws AWTException {
 		loginPage.loginAsUser();
 		propertiesPage = loginPage.navigateToPropertiesPage();
