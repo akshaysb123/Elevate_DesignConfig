@@ -63,7 +63,7 @@ public class DesignConfigsPage extends BaseClass {
 	private By hotelmodulecomonenttitle=By.xpath("//li[text()='Hotel Compendium']");
 	private By imageupload1=By.xpath("//div[@class='mb-4 mt-4']//div[@class='d-flex align-items-center img-select justify-content-center']");
 	private By title2 = By.xpath("(//div[@class='MuiFormControl-root w-100'])[2]");
-	private By title2visibletext = By.xpath("//li[text()='Training sessions']");
+	private By title2visibletext = By.xpath("//li[text()='abc']");
 	private By imageupload2 = By.xpath("//div[@class='col-md-12 mt-4']//div[@class='col-md-12 mt-4']//div[@class='d-flex align-items-center img-select justify-content-center']");
 	private By inactivebutton = By.xpath("//input[contains(@value,'view_all_status_inactive')]");
 	private By remove2 = By.xpath("//div[@class='text-underlined pointer']");
@@ -71,10 +71,37 @@ public class DesignConfigsPage extends BaseClass {
 	private By remove4=By.xpath("//div[@class='text-underlined pointer']");
 	private By collapseLandscape2Dcomponent = By.xpath("//div[@class=' component-title col-md-10 ps-2'][normalize-space()='6 - Large IMG w/Carousel']");
     private By clickslide2=By.xpath("//span[normalize-space()='Slide 2']");
-    private By getTitle3visibletext=By.xpath("//li[text()='Conventions']");
+    private By getTitle3visibletext=By.xpath("//li[text()='abc']");
     private By loader=By.xpath("//div[@class='loader-container d-flex justify-content-center align-items-center h-100']");
 
-	
+	//webelements for serchhotelDropDown
+    private By searchHotel=By.xpath("//div[@id='hotel-select']");
+  
+
+
+	private By searchHotelTextfield= By.xpath("//input[@placeholder='Select Hotel']");
+    private By searhHotelTextfieldclick=By.xpath("//li[.=\"SIRO Dubai\"][1]");
+    
+    //getters and setters
+    public By getSearchHotel() {
+  		return searchHotel;
+  	}
+  	public void setSearchHotel(By searchHotel) {
+  		this.searchHotel = searchHotel;
+  	}
+  	public By getSearchHotelTextfield() {
+  		return searchHotelTextfield;
+  	}
+  	public void setSearchHotelTextfield(By searchHotelTextfield) {
+  		this.searchHotelTextfield = searchHotelTextfield;
+  	}
+
+	public By getSearhHotelTextfieldclick() {
+		return searhHotelTextfieldclick;
+	}
+	public void setSearhHotelTextfieldclick(By searhHotelTextfieldclick) {
+		this.searhHotelTextfieldclick = searhHotelTextfieldclick;
+	}
 
 
 	//Webelements related to image component
@@ -494,6 +521,7 @@ public class DesignConfigsPage extends BaseClass {
 			e.printStackTrace();
 		}
 		
+		
 	}
   
 	
@@ -567,5 +595,23 @@ public class DesignConfigsPage extends BaseClass {
 		
 	}
 
+	//hoteldropdownforproperties
+	public void hotelDropdown() throws AWTException {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		elementActions.clickOnElement(getSearchHotel());
+		elementActions.clickOnElement(getSearchHotelTextfield());
+		elementActions.sendKeysElement(getSearchHotelTextfield(),ExcelUtil.fetchData("DesignConfigs", 2, 0));
+		
+		elementActions.clickOnElement(getSearhHotelTextfieldclick());
+	}
+	
+	
+	
+	}
+		
 
-}
+

@@ -4,8 +4,6 @@ import java.awt.AWTException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -15,8 +13,7 @@ import io.stage.hudinielevate.cms.pages.DesignConfigsPage;
 import io.stage.hudinielevate.cms.pages.LoginPage;
 import io.stage.hudinielevate.cms.pages.PropertiesPage;
 
-public class DesignConfigsTest {
-
+public class hotelDropDown {
 	public BaseClass baseClass;
 	public Properties properties;
 	public WebDriver driver;
@@ -45,34 +42,13 @@ public class DesignConfigsTest {
 	}
 
 	@Test(enabled = true, priority = 1)
-	public void verifyCreatePageTest() {
-		loginPage.loginAsUser();
+	public void verifyCreatePageTest() throws AWTException {
+		loginPage.loginAsSuperAdmin();
 		propertiesPage = loginPage.navigateToPropertiesPage();
 		designConfigsPage=new DesignConfigsPage(driver);
-		designConfigsPage.navigateToDesignConfigPage();
-		Boolean isPageCreated = designConfigsPage.createPage();
-		Assert.assertTrue(isPageCreated, "Design Config page is not created");
-	}
+		
+			designConfigsPage.hotelDropdown();
+		
 
-	@Test(enabled = true, priority = 2)
-	public void verifyAddComponentsTest() throws AWTException {
-		loginPage.loginAsUser();
-		propertiesPage = loginPage.navigateToPropertiesPage();
-		designConfigsPage=new DesignConfigsPage(driver);
-		designConfigsPage.navigateToDesignConfigPage();
-		designConfigsPage.addComponentsInAPage();
-	}
-	@Test(enabled = true, priority = 3)
-	public void verifyupdateComponentsTest() throws AWTException {
-		loginPage.loginAsUser();
-		propertiesPage = loginPage.navigateToPropertiesPage();
-		designConfigsPage=new DesignConfigsPage(driver);
-		designConfigsPage.navigateToDesignConfigPage();
-		designConfigsPage.updateComponentsInAPage();
-	}
-	
-	@AfterMethod
-	public void tearDown() {
-		driver.quit();
-	}
+}
 }

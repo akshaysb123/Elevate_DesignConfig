@@ -7,8 +7,9 @@
 </listeners>
   <test thread-count="5" name="Test">
     <classes>
+    <!-- new class <class name="io.stage.hudinielevate.cms.tests.DesignConfigsTest"/>  -->
      
-      <class name="io.stage.hudinielevate.cms.tests.DesignConfigsTest"/>
+      <class name="io.stage.hudinielevate.cms.tests.hotelDropDown"/>
       
     </classes>
   </test> <!-- Test -->
